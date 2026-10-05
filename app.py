@@ -123,7 +123,7 @@ BASE = """<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>{% block title %}scrapbin{% endblock %}</title>
+<title>{% block title %}pastel1n{% endblock %}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -157,7 +157,7 @@ pre{margin:0;padding:1rem;overflow:auto;font:400 .9rem/1.55 "JetBrains Mono",mon
 .link{font:500 .9rem "JetBrains Mono",monospace;word-break:break-all;padding:.7rem;border:1px dashed var(--line);border-radius:4px;margin:1rem 0}
 @media (prefers-reduced-motion:no-preference){button,.btn{transition:filter .12s}button:hover,.btn:hover{filter:brightness(1.1)}}
 </style></head><body>
-<header><a class="logo" href="/">scrapbin</a><span class="sub">Text in, link out.</span></header>
+<header><a class="logo" href="/">pastel1n</a><span class="sub">Text in, link out.</span></header>
 <main>{% block body %}{% endblock %}</main>
 </body></html>"""
 
@@ -174,7 +174,7 @@ NEW = """{% extends "base.html" %}{% block body %}
 <button type="submit">Create paste</button>
 </div></form>{% endblock %}"""
 
-VIEW = """{% extends "base.html" %}{% block title %}{{ paste.title }} · scrapbin{% endblock %}{% block body %}
+VIEW = """{% extends "base.html" %}{% block title %}{{ paste.title }} · pastel1n{% endblock %}{% block body %}
 <div class="meta"><div><h1>{{ paste.title }}</h1>
 <div class="sub">Created {{ paste.created_at.replace('T',' ') }} UTC ·
 {% if burned %}Deleted now: this link no longer works{% elif paste.expires_at %}Expires {{ paste.expires_at.replace('T',' ') }} UTC{% else %}Never expires{% endif %}</div></div>
