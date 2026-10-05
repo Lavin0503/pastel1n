@@ -10,8 +10,11 @@ MAX_CHARS = 200_000
 EXPIRY = {"never": None, "1h": timedelta(hours=1), "1d": timedelta(days=1), "1w": timedelta(weeks=1)}
 
 db_url = os.environ.get("DATABASE_URL", "sqlite:///pastes.db")
-if db_url.startswith("postgres://"):  # older Render URLs
-    db_url = db_url.replace("postgres://", "postgresql://", 1)
+# Render gives postgres:// or postgresql://; name the driver explicitly (psycopg2)
+for prefix in ("postgres://", "postgresql://"):
+    if db_url.startswith(prefix):
+        db_url = "postgresql+psycopg2://" + db_url[len(prefix):]
+        break
 engine = create_engine(db_url, pool_pre_ping=True)
 
 with engine.begin() as c:
