@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: scrapbin
+    name: pastel1n
     runtime: python
     plan: free
     buildCommand: pip install -r requirements.txt
@@ -10,9 +10,9 @@ services:
         value: 3.12.3
       - key: DATABASE_URL
         fromDatabase:
-          name: scrapbin-db
+          name: pastel1n-db
           property: connectionString
 
 databases:
-  - name: scrapbin-db
+  - name: pastel1n-db
     plan: free
